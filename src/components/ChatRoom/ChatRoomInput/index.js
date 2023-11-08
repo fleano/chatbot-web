@@ -58,6 +58,7 @@ const ChatRoomInput = ({}) => {
           display: "flex",
           alignItems: "end",
           width: "100%",
+          borderRadius: "10px",
         }}
         onSubmit={handleSubmit}
       >

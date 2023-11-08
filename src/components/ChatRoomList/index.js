@@ -21,7 +21,12 @@ const ChatRoomList = () => {
   };
   return (
     <>
-      <div style={{ height: "90vh", overflow: "auto" }}>
+      <div
+        style={{
+          height: "90vh",
+          overflow: "auto",
+        }}
+      >
         <List>
           {DUMMY_DATA_CHATROOMLIST.map((item, index) => {
             if (item.text === undefined) {
