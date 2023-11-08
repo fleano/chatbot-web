@@ -20,7 +20,7 @@ const ChatRoomList = () => {
     setSelectedIndex(index);
   };
   return (
-    <Paper>
+    <>
       <div style={{ height: "90vh", overflow: "auto" }}>
         <List>
           {DUMMY_DATA_CHATROOMLIST.map((item, index) => {
@@ -70,7 +70,7 @@ const ChatRoomList = () => {
           New Chat
         </Button>
       </Stack>
-    </Paper>
+    </>
   );
 };
 

@@ -74,10 +74,24 @@ function ChatRoomListItem({ handleListItemClick, index, selectedIndex, item }) {
         />
         {selectedIndex === index && (
           <Stack direction="row">
-            <IconButton edge="end" aria-label="edit" onClick={handleEdit}>
+            <IconButton
+              edge="end"
+              aria-label="edit"
+              onClick={handleEdit}
+              sx={{
+                color: "primary.main", // Change the icon color
+              }}
+            >
               <BorderColorOutlinedIcon />
             </IconButton>
-            <IconButton edge="end" aria-label="delete" onClick={handleDelete}>
+            <IconButton
+              edge="end"
+              aria-label="delete"
+              onClick={handleDelete}
+              sx={{
+                color: "primary.main", // Change the icon color
+              }}
+            >
               <DeleteOutlinedIcon />
             </IconButton>
           </Stack>
