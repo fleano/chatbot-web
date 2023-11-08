@@ -58,14 +58,14 @@ const ChatRoomList = () => {
         <Button
           variant="text"
           startIcon={<DeleteOutlinedIcon />}
-          sx={{ color: "grey.700" }}
+          sx={{ color: "grey.700", textTransform: "none" }}
         >
           Clear
         </Button>
         <Button
           variant="outlined"
           startIcon={<AddIcon />}
-          sx={{ borderRadius: "16px", width: "272px" }}
+          sx={{ borderRadius: "16px", width: "272px", textTransform: "none" }}
         >
           New Chat
         </Button>

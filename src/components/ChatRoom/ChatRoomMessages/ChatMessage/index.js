@@ -12,8 +12,7 @@ const ChatMessage = ({
   return (
     <Grid2
       container
-      component="section"
-      direction={isLocalParticipant ? "row-reverse" : "row"}
+      direction={"row"}
       sx={{
         marginTop: 1,
         marginBottom: 1,
@@ -37,9 +36,9 @@ const ChatMessage = ({
       <Grid2
         xs={1}
         sx={{
-          textAlign: isLocalParticipant ? "-webkit-left" : "-webkit-right",
+          textAlign: "-webkit-right",
           display: "flex",
-          justifyContent: isLocalParticipant ? "flex-start" : "flex-end",
+          justifyContent: "flex-end",
           alignItems: "center",
         }}
       >
@@ -50,15 +49,14 @@ const ChatMessage = ({
             width: "30px",
             height: "30px",
             marginTop: 1,
-            marginLeft: isLocalParticipant ? 1 : 0,
-            marginRight: isLocalParticipant ? 0 : 1,
+            marginRight: 1,
           }}
         />
       </Grid2>
       <Grid2
         xs={11}
         sx={{
-          textAlign: isLocalParticipant ? "-webkit-right" : "-webkit-left",
+          textAlign: "-webkit-left",
         }}
       >
         <TextMessage
