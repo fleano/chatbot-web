@@ -2,14 +2,14 @@ import React from "react";
 import { Box, Paper } from "@mui/material";
 import "./App.css";
 import ChatRoomList from "./components/ChatRoomList";
-import ChatWindow from "./components/ChatWindow";
+import ChatRoom from "./components/ChatRoom";
 
 function App() {
   return (
     <Box sx={{ background: "#E8EDF2", height: "100vh", display: "flex" }}>
       <Box
         sx={{
-          width: "25%", // 100% on extra-small screens, 25% on small screens and up
+          width: "25%",
           height: "100%",
         }}
       >
@@ -19,11 +19,14 @@ function App() {
       </Box>
       <Box
         sx={{
-          flexGrow: 1, // Takes up the remaining space
-          height: "100%",
+          flexGrow: 1,
+          paddingX: 3,
+          paddingTop: 3,
         }}
       >
-        <ChatWindow />
+        <Paper sx={{ padding: 2, borderRadius: "16px" }}>
+          <ChatRoom />
+        </Paper>
       </Box>
     </Box>
   );
