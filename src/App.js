@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { Box } from "@mui/material";
+import "./App.css";
+import ChatRoomList from "./components/ChatRoomList";
+import Grid from "@mui/material/Unstable_Grid2"; // Grid version 2
+import ChatWindow from "./components/ChatWindow";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box sx={{ background: "#E8EDF2" }} height="100vh">
+      <Grid container height="100%" spacing={2}>
+        <Grid xs={12} sm={3} height="100%">
+          <ChatRoomList />
+        </Grid>
+        <Grid xs={12} sm={9}>
+          <ChatWindow />
+        </Grid>
+      </Grid>
+    </Box>
   );
 }
 
