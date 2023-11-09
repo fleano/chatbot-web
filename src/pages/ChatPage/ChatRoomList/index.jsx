@@ -24,7 +24,7 @@ const ChatRoomList = () => {
     <>
       <Box
         sx={{
-          height: "85vh",
+          height: "90vh",
           overflow: "auto",
         }}
       >
