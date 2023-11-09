@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Paper, styled } from "@mui/material";
 import DocumentRoomList from "./DocumentRoomList";
+import DocumentRoom from "./DocumentRoom";
 
 const MainContainer = styled("main")({
   background: "#E8EDF2",
@@ -31,8 +32,7 @@ const DocumentSummaryPage = () => {
             margin: 3,
           }}
         >
-          {/* <ChatRoom /> */}
-          <h2>fff</h2>
+          <DocumentRoom />
         </Paper>
       </Box>
     </MainContainer>
