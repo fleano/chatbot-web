@@ -1,22 +1,27 @@
 import React from "react";
-import { Box, Paper } from "@mui/material";
+import { Box, Paper, styled } from "@mui/material";
 import "./App.css";
 import ChatRoomList from "./components/ChatRoomList";
 import ChatRoom from "./components/ChatRoom";
 
+const AppContainer = styled("div")({
+  background: "#E8EDF2",
+  height: "100vh",
+  display: "flex",
+});
+
+const ChatRoomListContainer = styled(Paper)({
+  width: "15%",
+  height: "100%",
+});
+
 function App() {
   return (
-    <Box sx={{ background: "#E8EDF2", height: "100vh", display: "flex" }}>
-      <Box
-        sx={{
-          width: "25%",
-          height: "100%",
-        }}
-      >
-        <Paper sx={{ height: "100%" }}>
-          <ChatRoomList />
-        </Paper>
-      </Box>
+    <AppContainer>
+      <ChatRoomListContainer>
+        <ChatRoomList />
+      </ChatRoomListContainer>
+
       <Box
         sx={{
           flexGrow: 1,
@@ -24,11 +29,16 @@ function App() {
           paddingTop: 3,
         }}
       >
-        <Paper sx={{ padding: 2, borderRadius: "16px" }}>
+        <Paper
+          sx={{
+            padding: 2,
+            borderRadius: "16px",
+          }}
+        >
           <ChatRoom />
         </Paper>
       </Box>
-    </Box>
+    </AppContainer>
   );
 }
 

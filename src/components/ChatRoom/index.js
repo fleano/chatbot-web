@@ -8,7 +8,7 @@ const ChatRoom = () => {
   return (
     <>
       <ChatRoomHeader />
-      <Divider variant="middle" />
+      <Divider />
       <ChatRoomMessages />
 
       <ChatRoomInput />

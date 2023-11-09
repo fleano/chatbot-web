@@ -1,21 +1,16 @@
 import { Send } from "@mui/icons-material";
 import AttachFileIcon from "@mui/icons-material/AttachFile";
-import {
-  Box,
-  IconButton,
-  Paper,
-  Stack,
-  TextField,
-  styled,
-} from "@mui/material";
+import { Box, IconButton, Paper, TextField, styled } from "@mui/material";
 import React, { useState } from "react";
 
-const ChatRoomInputContainer = styled(Stack)({
-  flexDirection: "row",
+const ChatRoomInputContainer = styled(Paper)({
+  display: "flex",
   justifyContent: "center",
-  alignItems: "center",
+  alignItems: "end",
   position: "sticky",
   bottom: 0,
+  padding: "4px 4px",
+  borderRadius: "10px",
 });
 
 const InputTextField = styled(TextField)(() => ({
@@ -25,15 +20,14 @@ const InputTextField = styled(TextField)(() => ({
   flex: 1,
 }));
 
-const ChatRoomInput = ({}) => {
+const ChatRoomInput = () => {
   const [message, setMessage] = useState("");
 
-  const handleSubmit = (event) => {
-    if (event) event.preventDefault();
+  const handleSubmit = (e) => {
+    if (e) e.preventDefault();
 
     if (message.trim()) {
-      // handleSendMessage(message);
-      console.log(message);
+      console.log("Message being sent:", message);
       setMessage("");
     }
   };
@@ -50,39 +44,27 @@ const ChatRoomInput = ({}) => {
   };
 
   return (
-    <ChatRoomInputContainer>
-      <Paper
-        component="form"
-        sx={{
-          p: "4px 4px",
-          display: "flex",
-          alignItems: "end",
-          width: "100%",
-          borderRadius: "10px",
-        }}
-        onSubmit={handleSubmit}
-      >
-        <IconButton onClick={() => console.log("try to send a file")}>
-          <AttachFileIcon style={{ transform: "rotate(45deg)" }} />
-        </IconButton>
-        <InputTextField
-          placeholder="Write a message..."
-          type="text"
-          inputProps={{ "aria-label": "send message" }}
-          size="small"
-          multiline
-          onKeyDown={handleKeyDown}
-          maxRows={4}
-          value={message}
-          onChange={handleChange}
-        />
+    <ChatRoomInputContainer component="form" onSubmit={handleSubmit}>
+      <IconButton onClick={() => console.log("try to send a file")}>
+        <AttachFileIcon sx={{ transform: "rotate(45deg)" }} />
+      </IconButton>
+      <InputTextField
+        placeholder="Write a message..."
+        type="text"
+        inputProps={{ "aria-label": "send message" }}
+        size="small"
+        multiline
+        onKeyDown={handleKeyDown}
+        maxRows={4}
+        value={message}
+        onChange={handleChange}
+      />
 
-        <Box>
-          <IconButton type="submit" color="primary" aria-label="directions">
-            <Send />
-          </IconButton>
-        </Box>
-      </Paper>
+      <Box>
+        <IconButton type="submit" color="primary" aria-label="directions">
+          <Send />
+        </IconButton>
+      </Box>
     </ChatRoomInputContainer>
   );
 };

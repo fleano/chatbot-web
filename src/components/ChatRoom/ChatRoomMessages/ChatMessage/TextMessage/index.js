@@ -1,23 +1,25 @@
-import { Typography } from "@mui/material";
+import { Typography, styled } from "@mui/material";
 
-const TextMessage = ({ isLocalParticipant, message }) => {
+const StyledTypography = styled(Typography)({
+  padding: "12px 16px",
+  borderTopLeftRadius: "12px",
+  borderTopRightRadius: "12px",
+  borderBottomRightRadius: "12px",
+  display: "inline-block",
+  textAlign: "left",
+  maxWidth: "87%",
+});
+
+const TextMessage = ({ isLocalParticipant, children }) => {
   return (
-    <Typography
+    <StyledTypography
       sx={{
-        padding: "8px 16px",
-        borderTopLeftRadius: "12px",
-        borderTopRightRadius: "12px",
-        borderBottomLeftRadius: isLocalParticipant ? "12px" : 0,
-        borderBottomRightRadius: isLocalParticipant ? 0 : "12px",
-        color: isLocalParticipant ? "white " : "inherit",
+        color: isLocalParticipant ? "white" : "inherit",
         backgroundColor: isLocalParticipant ? "#0b68f9" : "#eaeef1",
-        display: "inline-block",
-        textAlign: "left",
-        maxWidth: "87%",
       }}
     >
-      {message}
-    </Typography>
+      {children}
+    </StyledTypography>
   );
 };
 

@@ -37,9 +37,8 @@ function ChatRoomListItem({ handleListItemClick, index, selectedIndex, item }) {
             bgcolor: "action.selected",
             color: "primary.main",
             "& .MuiAvatar-root": {
-              // Target the Avatar when the ListItemButton is selected
-              bgcolor: "primary.main", // Change the background color of the Avatar
-              color: "primary.contrastText", // Change the text/icon color inside the Avatar
+              bgcolor: "primary.main",
+              color: "primary.contrastText",
             },
             "&:hover": {
               bgcolor: "action.hover",
@@ -54,10 +53,6 @@ function ChatRoomListItem({ handleListItemClick, index, selectedIndex, item }) {
         </ListItemAvatar>
         <ListItemText
           sx={{
-            overflow: "hidden",
-            whiteSpace: "nowrap",
-            textOverflow: "ellipsis",
-            mr: 2,
             flex: 1,
           }}
           primary={

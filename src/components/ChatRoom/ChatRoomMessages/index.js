@@ -2,7 +2,6 @@ import React from "react";
 import ChatMessage from "./ChatMessage";
 import { Box } from "@mui/material";
 import { CHAT_MESSAGES_DUMMY_DATA } from "./DUMMY_DATA";
-import { Chat } from "@mui/icons-material";
 
 const ChatRoomMessages = () => {
   return (
@@ -19,6 +18,10 @@ const ChatRoomMessages = () => {
           key={index.toString()}
           isLocalParticipant={item.isLocalParticiapnt}
           message={item.message}
+          isFirstMessageOfTheDay={item.isFirstMessageOfTheDay}
+          showAvatar={item.showAvatar}
+          time={item.time}
+          showTime={item.showTime}
         />
       ))}
     </Box>

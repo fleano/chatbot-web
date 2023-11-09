@@ -8,7 +8,7 @@ import {
   ListItem,
   ListItemText,
   Typography,
-  Paper,
+  Box,
 } from "@mui/material";
 import { DUMMY_DATA_CHATROOMLIST } from "./DUMMY_DATA";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
@@ -21,8 +21,8 @@ const ChatRoomList = () => {
   };
   return (
     <>
-      <div
-        style={{
+      <Box
+        sx={{
           height: "90vh",
           overflow: "auto",
         }}
@@ -31,7 +31,7 @@ const ChatRoomList = () => {
           {DUMMY_DATA_CHATROOMLIST.map((item, index) => {
             if (item.text === undefined) {
               return (
-                <ListItem>
+                <ListItem key={index.toString()}>
                   <ListItemText
                     primary={
                       <Typography variant="subtitle1" sx={{ color: "#9AA3AC" }}>
@@ -53,9 +53,8 @@ const ChatRoomList = () => {
             );
           })}
         </List>
-      </div>
+      </Box>
       <Divider variant="middle" />
-
       <Stack
         sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
         spacing={1}
@@ -64,13 +63,15 @@ const ChatRoomList = () => {
           variant="text"
           startIcon={<DeleteOutlinedIcon />}
           sx={{ color: "grey.700", textTransform: "none" }}
+          onClick={() => console.log("clear chat clicked!")}
         >
           Clear
         </Button>
         <Button
           variant="outlined"
           startIcon={<AddIcon />}
-          sx={{ borderRadius: "16px", width: "272px", textTransform: "none" }}
+          sx={{ borderRadius: "16px", width: "80%", textTransform: "none" }}
+          onClick={() => console.log("new chat clicked!")}
         >
           New Chat
         </Button>
