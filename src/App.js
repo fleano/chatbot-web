@@ -10,7 +10,7 @@ const AppContainer = styled("main")({
   display: "flex",
 });
 
-const ChatRoomListContainer = styled(Paper)(({ theme }) => ({
+const ChatRoomListContainer = styled(Paper)(() => ({
   width: "275px",
 }));
 

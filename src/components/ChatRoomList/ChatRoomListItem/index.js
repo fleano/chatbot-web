@@ -6,7 +6,6 @@ import {
   Avatar,
   ListItemText,
   Typography,
-  Box,
   ListItem,
   Stack,
 } from "@mui/material";

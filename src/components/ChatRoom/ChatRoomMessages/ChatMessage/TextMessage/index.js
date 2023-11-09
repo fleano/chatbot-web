@@ -1,4 +1,4 @@
-import { Stack, Typography, styled, IconButton, Box } from "@mui/material";
+import { Stack, Typography, styled, IconButton } from "@mui/material";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
 import ThumbDownOutlinedIcon from "@mui/icons-material/ThumbDownOutlined";
