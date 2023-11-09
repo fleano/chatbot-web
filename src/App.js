@@ -4,16 +4,15 @@ import "./App.css";
 import ChatRoomList from "./components/ChatRoomList";
 import ChatRoom from "./components/ChatRoom";
 
-const AppContainer = styled("div")({
+const AppContainer = styled("main")({
   background: "#E8EDF2",
   height: "100vh",
   display: "flex",
 });
 
-const ChatRoomListContainer = styled(Paper)({
-  width: "15%",
-  height: "100%",
-});
+const ChatRoomListContainer = styled(Paper)(({ theme }) => ({
+  width: "275px",
+}));
 
 function App() {
   return (
@@ -25,8 +24,6 @@ function App() {
       <Box
         sx={{
           flexGrow: 1,
-          // paddingX: 3,
-          // paddingTop: 3,
         }}
       >
         <Paper

@@ -18,16 +18,17 @@ const ChatRoomList = () => {
   const [selectedIndex, setSelectedIndex] = useState(null);
   const handleListItemClick = (index) => {
     setSelectedIndex(index);
+    console.log("listItem is clicked!");
   };
   return (
     <>
       <Box
         sx={{
-          height: "90vh",
+          height: "85vh",
           overflow: "auto",
         }}
       >
-        <List>
+        <List disablePadding>
           {DUMMY_DATA_CHATROOMLIST.map((item, index) => {
             if (item.text === undefined) {
               return (

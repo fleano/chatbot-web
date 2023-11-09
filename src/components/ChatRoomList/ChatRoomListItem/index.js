@@ -1,12 +1,13 @@
 import React from "react";
 import {
-  ListItem,
   ListItemButton,
   IconButton,
   ListItemAvatar,
   Avatar,
   ListItemText,
   Typography,
+  Box,
+  ListItem,
   Stack,
 } from "@mui/material";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
@@ -17,43 +18,46 @@ function ChatRoomListItem({ handleListItemClick, index, selectedIndex, item }) {
   const handleEdit = (event) => {
     // Handle the edit action
     event.stopPropagation(); // Prevents the ListItemButton from being selected
+    console.log("edit is clicked!");
   };
 
   const handleDelete = (event) => {
     // Handle the delete action
     event.stopPropagation(); // Prevents the ListItemButton from being selected
+    console.log("delete is clicked!");
   };
   return (
-    <ListItem key={index} disablePadding>
+    <ListItem disablePadding>
       <ListItemButton
+        component="li"
+        disableRipple
         onClick={() => handleListItemClick(index)}
         selected={selectedIndex === index}
         sx={{
           display: "flex",
-          width: "100%",
-          py: 1,
-          px: 2,
+          alignItems: "center",
+          justifyContent: "space-between",
+          borderRadius: "6px",
+          marginX: 2,
+          paddingY: 0.5,
           "&.Mui-selected, &.Mui-selected:hover": {
-            bgcolor: "action.selected",
-            color: "primary.main",
+            bgcolor: "#f4f8ff",
             "& .MuiAvatar-root": {
-              bgcolor: "primary.main",
-              color: "primary.contrastText",
-            },
-            "&:hover": {
-              bgcolor: "action.hover",
+              color: "primary.main",
             },
           },
         }}
       >
-        <ListItemAvatar>
-          <Avatar>
+        <ListItemAvatar sx={{ minWidth: "20px", marginRight: 1 }}>
+          <Avatar sx={{ bgcolor: "transparent", color: "initial" }}>
             <SmsOutlinedIcon />
           </Avatar>
         </ListItemAvatar>
         <ListItemText
           sx={{
             flex: 1,
+            minWidth: 0, // Ensures it can shrink below its base size if needed
+            mr: 2, // Provide spacing between text and icons
           }}
           primary={
             <Typography
@@ -61,6 +65,7 @@ function ChatRoomListItem({ handleListItemClick, index, selectedIndex, item }) {
                 textOverflow: "ellipsis",
                 overflow: "hidden",
                 whiteSpace: "nowrap",
+                color: selectedIndex === index ? "primary.main" : "inherit",
               }}
             >
               {item.text}
@@ -69,12 +74,13 @@ function ChatRoomListItem({ handleListItemClick, index, selectedIndex, item }) {
         />
         {selectedIndex === index && (
           <Stack direction="row">
+            {/* Ensure this box does not shrink */}
             <IconButton
               edge="end"
               aria-label="edit"
               onClick={handleEdit}
               sx={{
-                color: "primary.main", // Change the icon color
+                color: "primary.main",
               }}
             >
               <BorderColorOutlinedIcon />
@@ -84,7 +90,7 @@ function ChatRoomListItem({ handleListItemClick, index, selectedIndex, item }) {
               aria-label="delete"
               onClick={handleDelete}
               sx={{
-                color: "primary.main", // Change the icon color
+                color: "primary.main",
               }}
             >
               <DeleteOutlinedIcon />

@@ -19,22 +19,23 @@ const TextMessage = ({ isLocalParticipant, children }) => {
     <StyledStack
       spacing={1}
       sx={{
-        backgroundColor: isLocalParticipant ? "#0b68f9" : "#eaeef1",
+        backgroundColor: isLocalParticipant ? "#eaeef1" : "#0b68f9",
+        minWidth: isLocalParticipant ? "initial" : "15%",
       }}
     >
-      <Typography sx={{ color: isLocalParticipant ? "white" : "inherit" }}>
+      <Typography sx={{ color: isLocalParticipant ? "inherit" : "white" }}>
         {children}
       </Typography>
 
-      {isLocalParticipant && (
+      {!isLocalParticipant && (
         <Stack direction="row" spacing={1} alignSelf="end">
           <IconButton
             edge="end"
             aria-label="edit"
             onClick={() => console.log("copy is clicked!")}
             sx={{
-              backgroundColor: "#4189fa", // Change the icon color
-              color: "#F5F5F5",
+              backgroundColor: "#4189fa",
+              color: "white",
             }}
           >
             <ContentCopyIcon />
@@ -44,8 +45,8 @@ const TextMessage = ({ isLocalParticipant, children }) => {
             aria-label="delete"
             onClick={() => console.log("like is clicked!")}
             sx={{
-              backgroundColor: "#4189fa", // Change the icon color
-              color: "#F5F5F5",
+              backgroundColor: "#4189fa",
+              color: "white",
             }}
           >
             <ThumbUpOutlinedIcon />
@@ -55,8 +56,8 @@ const TextMessage = ({ isLocalParticipant, children }) => {
             aria-label="delete"
             onClick={() => console.log("dislike is clicked!")}
             sx={{
-              backgroundColor: "#4189fa", // Change the icon color
-              color: "#F5F5F5",
+              backgroundColor: "#4189fa",
+              color: "white",
             }}
           >
             <ThumbDownOutlinedIcon />
