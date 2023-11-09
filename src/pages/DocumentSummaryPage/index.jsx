@@ -1,7 +1,42 @@
 import React from "react";
+import { Box, Paper, styled } from "@mui/material";
+import DocumentRoomList from "./DocumentRoomList";
+
+const MainContainer = styled("main")({
+  background: "#E8EDF2",
+  height: "100vh",
+  display: "flex",
+});
+
+const DocumentRoomListContainer = styled(Paper)(() => ({
+  width: "320px",
+}));
 
 const DocumentSummaryPage = () => {
-  return <div>DocumentSummaryPage</div>;
+  return (
+    <MainContainer>
+      <DocumentRoomListContainer>
+        <DocumentRoomList />
+      </DocumentRoomListContainer>
+
+      <Box
+        sx={{
+          flexGrow: 1,
+        }}
+      >
+        <Paper
+          sx={{
+            padding: 2,
+            borderRadius: "16px",
+            margin: 3,
+          }}
+        >
+          {/* <ChatRoom /> */}
+          <h2>fff</h2>
+        </Paper>
+      </Box>
+    </MainContainer>
+  );
 };
 
 export default DocumentSummaryPage;

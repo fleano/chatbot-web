@@ -3,19 +3,19 @@ import { Box, Paper, styled } from "@mui/material";
 import ChatRoomList from "./ChatRoomList";
 import ChatRoom from "./ChatRoom";
 
-const AppContainer = styled("main")({
+const MainContainer = styled("main")({
   background: "#E8EDF2",
   height: "100vh",
   display: "flex",
 });
 
 const ChatRoomListContainer = styled(Paper)(() => ({
-  width: "275px",
+  width: "320px",
 }));
 
 function ChatPage() {
   return (
-    <AppContainer>
+    <MainContainer>
       <ChatRoomListContainer>
         <ChatRoomList />
       </ChatRoomListContainer>
@@ -35,7 +35,7 @@ function ChatPage() {
           <ChatRoom />
         </Paper>
       </Box>
-    </AppContainer>
+    </MainContainer>
   );
 }
 
