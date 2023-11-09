@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import BorderColorOutlinedIcon from "@mui/icons-material/BorderColorOutlined";
-import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
+import SmsOutlinedIcon from "@mui/icons-material/SmsOutlined";
 
 function ChatRoomListItem({ handleListItemClick, index, selectedIndex, item }) {
   const handleEdit = (event) => {
@@ -48,7 +48,7 @@ function ChatRoomListItem({ handleListItemClick, index, selectedIndex, item }) {
       >
         <ListItemAvatar>
           <Avatar>
-            <ChatOutlinedIcon />
+            <SmsOutlinedIcon />
           </Avatar>
         </ListItemAvatar>
         <ListItemText

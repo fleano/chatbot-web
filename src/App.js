@@ -25,14 +25,15 @@ function App() {
       <Box
         sx={{
           flexGrow: 1,
-          paddingX: 3,
-          paddingTop: 3,
+          // paddingX: 3,
+          // paddingTop: 3,
         }}
       >
         <Paper
           sx={{
             padding: 2,
             borderRadius: "16px",
+            margin: 3,
           }}
         >
           <ChatRoom />
