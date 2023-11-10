@@ -1,63 +1,65 @@
 import React, { useState } from "react";
-import ChatRoomListItem from "./ChatRoomListItem";
 import {
   List,
   Divider,
   Stack,
   Button,
-  ListItem,
-  ListItemText,
   Typography,
+  Paper,
+  styled,
   Box,
 } from "@mui/material";
 import { DUMMY_DATA_CHATROOMLIST } from "./DUMMY_DATA";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import AddIcon from "@mui/icons-material/Add";
+import ChatRoomListItemButton from "./ChatRoomListItemButton";
 
-const ChatRoomList = () => {
+const DayDividerText = styled(Typography)(({ theme }) => ({
+  color: "#9AA3AC",
+  paddingTop: theme.spacing(2),
+}));
+
+const listItemStyle = { marginX: 1, padding: 0 };
+
+const ChatRoomList = ({ ...paperProps }) => {
   const [selectedIndex, setSelectedIndex] = useState(null);
-  const handleListItemClick = (index) => {
+  const handleListItemButtonClick = (index) => {
     setSelectedIndex(index);
     console.log("listItem is clicked!");
   };
   return (
-    <>
-      <Box
+    <Paper {...paperProps}>
+      <List
+        disablePadding
         sx={{
           height: "85vh",
           overflow: "auto",
         }}
       >
-        <List disablePadding>
-          {DUMMY_DATA_CHATROOMLIST.map((item, index) => {
-            if (item.text === undefined) {
-              return (
-                <ListItem key={index.toString()}>
-                  <ListItemText
-                    primary={
-                      <Typography variant="subtitle1" sx={{ color: "#9AA3AC" }}>
-                        {item.day}
-                      </Typography>
-                    }
-                  />
-                </ListItem>
-              );
-            }
-            return (
-              <ChatRoomListItem
-                key={index.toString()}
-                handleListItemClick={handleListItemClick}
-                index={index}
-                selectedIndex={selectedIndex}
-                item={item}
-              />
-            );
-          })}
-        </List>
-      </Box>
+        {DUMMY_DATA_CHATROOMLIST.map((item, index) =>
+          item.text === undefined ? (
+            <Box key={index.toString()} component="li" sx={listItemStyle}>
+              <DayDividerText variant="subtitle1">{item.day}</DayDividerText>
+            </Box>
+          ) : (
+            <ChatRoomListItemButton
+              sx={listItemStyle}
+              key={index.toString()}
+              handleListItemButtonClick={handleListItemButtonClick}
+              index={index}
+              selectedIndex={selectedIndex}
+              item={item}
+            />
+          )
+        )}
+      </List>
       <Divider variant="middle" />
       <Stack
-        sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
         spacing={1}
       >
         <Button
@@ -77,7 +79,7 @@ const ChatRoomList = () => {
           New Chat
         </Button>
       </Stack>
-    </>
+    </Paper>
   );
 };
 

@@ -8,7 +8,7 @@ const ChatRoomMessages = () => {
     <Box
       sx={{
         overflow: "auto",
-        height: "75vh",
+        height: "50vh",
         display: "flex",
         flexDirection: "column-reverse",
       }}

@@ -69,7 +69,7 @@ const DocumentRoomList = () => {
           onClick={() => console.log("clear chat clicked!")}
         >Clear</Button>
       </Stack>
-      <List>
+      <List sx={{height:"70vh", overflow:"auto"}}>
         <ListItem
         //   key={index.toString()}
         >
@@ -81,6 +81,16 @@ const DocumentRoomList = () => {
             }
           />
         </ListItem>
+        <DocumentRoomListItem />
+        <DocumentRoomListItem />
+        <DocumentRoomListItem />
+        <DocumentRoomListItem />
+        <DocumentRoomListItem />
+        <DocumentRoomListItem />
+        <DocumentRoomListItem />
+        <DocumentRoomListItem />
+        <DocumentRoomListItem />
+        <DocumentRoomListItem />
         <DocumentRoomListItem />
         <DocumentRoomListItem />
         <DocumentRoomListItem />

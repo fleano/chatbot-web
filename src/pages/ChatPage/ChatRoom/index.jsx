@@ -1,18 +1,25 @@
 import React from "react";
-import { Divider } from "@mui/material";
+import { Box, Divider, Paper } from "@mui/material";
 import ChatRoomHeader from "./ChatRoomHeader";
 import ChatRoomInput from "./ChatRoomInput";
 import ChatRoomMessages from "./ChatRoomMessages";
 
-const ChatRoom = () => {
+const ChatRoom = ({ children, ...boxProps }) => {
   return (
-    <>
-      <ChatRoomHeader />
-      <Divider />
-      <ChatRoomMessages />
-
-      <ChatRoomInput />
-    </>
+    <Box {...boxProps}>
+      <Paper
+        sx={{
+          padding: 2,
+          borderRadius: "16px",
+          margin: 3,
+        }}
+      >
+        <ChatRoomHeader />
+        <Divider flexItem />
+        <ChatRoomMessages />
+        <ChatRoomInput />
+      </Paper>
+    </Box>
   );
 };
 

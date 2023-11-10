@@ -4,7 +4,7 @@ import TextMessage from "./TextMessage";
 
 const ChatMessage = ({
   isLocalParticipant,
-  isFirstMessageOfTheDay = false,
+  isFirstMessageOfTheDay,
   message,
   showTime,
   showAvatar,
@@ -39,7 +39,7 @@ const ChatMessage = ({
               <Typography
                 variant="body2"
                 color={"#A5B6BF"}
-                sx={{ paddingTop: .5 }}
+                sx={{ paddingTop: 0.5 }}
               >
                 {time}
               </Typography>

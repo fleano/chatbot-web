@@ -78,7 +78,7 @@ export const CHAT_MESSAGES_DUMMY_DATA = [
   {
     isLocalParticiapnt: true,
     message: "helloooooo",
-    isFirstMessageOfTheDay: false,
+    isFirstMessageOfTheDay: true,
     time: "9:25pm",
     showTime: true,
     showAvatar: true,
