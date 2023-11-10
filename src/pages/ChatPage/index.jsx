@@ -10,9 +10,9 @@ const SideBox = styled(Box)(() => ({
 }));
 
 const MainBox = styled(Box)(({ theme }) => ({
+  display: "flex",
   flexGrow: 1,
   padding: theme.spacing(2),
-  display: "flex",
   justifyContent: "center",
   alignItems: "center",
 }));
@@ -24,7 +24,7 @@ function ChatPage() {
         <ChatRoomList sx={{ height: "100%" }} />
       </SideBox>
       <MainBox>
-        <ChatRoom />
+        <ChatRoom sx={{ height: "90%" }} />
       </MainBox>
     </Box>
   );

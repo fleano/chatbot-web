@@ -3,8 +3,6 @@ import {
   Button,
   IconButton,
   Divider,
-  ListItem,
-  ListItemText,
   Typography,
   List,
   Box,
@@ -14,7 +12,6 @@ import {
 import React, { useState } from "react";
 import FileUploadOutlinedIcon from "@mui/icons-material/FileUploadOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
-import DocumentRoomListItem from "./DocumentRoomListItem";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import Checkbox from "@mui/material/Checkbox";
 import { DUMMY_DATA_CHATROOMLIST } from "../../ChatPage/ChatRoomList/DUMMY_DATA";
