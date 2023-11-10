@@ -5,7 +5,7 @@ import { CHAT_MESSAGES_DUMMY_DATA } from "./DUMMY_DATA";
 
 const StyledBox = styled(Box)(({ theme }) => ({
   overflow: "auto",
-  height: "50vh",
+  height: "100%",
   display: "flex",
   flexDirection: "column-reverse",
 }));

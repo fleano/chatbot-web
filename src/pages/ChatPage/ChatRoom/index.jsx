@@ -5,10 +5,13 @@ import ChatRoomInput from "./ChatRoomInput";
 import ChatRoomMessages from "./ChatRoomMessages";
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
   paddingTop: theme.spacing(2),
   paddingBottom: theme.spacing(2),
   paddingLeft: theme.spacing(2),
   borderRadius: "16px",
+  height: "80%", // Ensure it fills the parent height
 }));
 
 const ChatRoom = ({ ...paperProps }) => {
@@ -16,7 +19,11 @@ const ChatRoom = ({ ...paperProps }) => {
     <StyledPaper {...paperProps}>
       <ChatRoomHeader />
       <Divider />
-      <ChatRoomMessages sx={{ height: "70vh" }} />
+      <Box sx={{ 
+        // flex: 1,
+         overflow: "auto" }}>
+        <ChatRoomMessages />
+      </Box>
       <ChatRoomInput />
     </StyledPaper>
   );

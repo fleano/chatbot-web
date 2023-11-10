@@ -10,13 +10,14 @@ import React, { useState } from "react";
 
 const InputContainer = styled(Box)(({ theme }) => ({
   display: "flex",
-  justifyContent: "center",
-  alignItems: "end",
+  flexDirection: "column-reverse", // Grow upwards
+  alignItems: "center",
   position: "sticky",
   bottom: 0,
   borderRadius: "10px",
   paddingRight: theme.spacing(2),
 }));
+
 
 const InputTextField = styled(TextField)(({ theme }) => ({
   // position: "absolute",
@@ -63,7 +64,7 @@ const ChatRoomInput = () => {
 
   return (
     <InputContainer component="form" onSubmit={handleSubmit}>
-      <Box sx={{ flex: 1, position: "relative", bottom: 0 }}>
+      {/* <Box sx={{ flex: 1, position: "relative", bottom: 0 }}> */}
         <InputTextField
           placeholder="Write a message..."
           type="text"
@@ -84,7 +85,7 @@ const ChatRoomInput = () => {
             ),
           }}
         />
-      </Box>
+      {/* </Box> */}
     </InputContainer>
   );
 };
