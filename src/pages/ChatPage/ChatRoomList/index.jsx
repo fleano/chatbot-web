@@ -59,6 +59,8 @@ const ChatRoomList = ({ ...paperProps }) => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          position: "sticky",
+          bottom: 0,
         }}
         spacing={1}
       >

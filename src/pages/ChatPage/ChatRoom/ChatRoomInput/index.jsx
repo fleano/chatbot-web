@@ -3,7 +3,7 @@ import AttachFileIcon from "@mui/icons-material/AttachFile";
 import { Box, IconButton, Paper, TextField, styled } from "@mui/material";
 import React, { useState } from "react";
 
-const ChatRoomInputContainer = styled(Paper)({
+const ChatRoomInputPaper = styled(Paper)({
   display: "flex",
   justifyContent: "center",
   alignItems: "end",
@@ -12,6 +12,7 @@ const ChatRoomInputContainer = styled(Paper)({
   padding: "4px 4px",
   borderRadius: "10px",
 });
+
 
 const InputTextField = styled(TextField)(() => ({
   "& >.MuiInputBase-root": {
@@ -43,8 +44,10 @@ const ChatRoomInput = () => {
     setMessage(e.target.value);
   };
 
+  console.log("being rendered");
+
   return (
-    <ChatRoomInputContainer component="form" onSubmit={handleSubmit}>
+    <ChatRoomInputPaper component="form" onSubmit={handleSubmit}>
       <IconButton onClick={() => console.log("try to send a file")}>
         <AttachFileIcon sx={{ transform: "rotate(45deg)" }} />
       </IconButton>
@@ -65,7 +68,7 @@ const ChatRoomInput = () => {
           <Send />
         </IconButton>
       </Box>
-    </ChatRoomInputContainer>
+    </ChatRoomInputPaper>
   );
 };
 

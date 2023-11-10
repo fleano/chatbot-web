@@ -4,22 +4,19 @@ import ChatRoomHeader from "./ChatRoomHeader";
 import ChatRoomInput from "./ChatRoomInput";
 import ChatRoomMessages from "./ChatRoomMessages";
 
-const ChatRoom = ({ children, ...boxProps }) => {
+const ChatRoom = ({ ...paperProps }) => {
   return (
-    <Box {...boxProps}>
-      <Paper
-        sx={{
-          padding: 2,
-          borderRadius: "16px",
-          margin: 3,
-        }}
-      >
-        <ChatRoomHeader />
-        <Divider flexItem />
-        <ChatRoomMessages />
-        <ChatRoomInput />
-      </Paper>
-    </Box>
+    <Paper
+      sx={{
+        padding: 2,
+        borderRadius: "16px",
+      }}
+    >
+      <ChatRoomHeader />
+      <Divider />
+      <ChatRoomMessages sx={{ height: "70vh" }} />
+      <ChatRoomInput />
+    </Paper>
   );
 };
 

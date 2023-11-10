@@ -7,16 +7,32 @@ import {
   ListItemText,
   Typography,
   List,
+  Box,
   FormControlLabel,
+  styled,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import FileUploadOutlinedIcon from "@mui/icons-material/FileUploadOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import DocumentRoomListItem from "./DocumentRoomListItem";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import Checkbox from "@mui/material/Checkbox";
+import { DUMMY_DATA_CHATROOMLIST } from "../../ChatPage/ChatRoomList/DUMMY_DATA";
+import ChatRoomListItemButton from "../../ChatPage/ChatRoomList/ChatRoomListItemButton";
+
+const DayDividerText = styled(Typography)(({ theme }) => ({
+  color: "#9AA3AC",
+  paddingTop: theme.spacing(2),
+}));
+
+const listItemStyle = { marginX: 1, padding: 0 };
 
 const DocumentRoomList = () => {
+  const [selectedIndex, setSelectedIndex] = useState(null);
+  const handleListItemButtonClick = (index) => {
+    setSelectedIndex(index);
+    console.log("listItem is clicked!");
+  };
   return (
     <>
       <Stack
@@ -61,44 +77,42 @@ const DocumentRoomList = () => {
         direction="row"
         padding={2}
       >
-        <FormControlLabel control={<Checkbox defaultChecked />} label="Select all" />
+        <FormControlLabel
+          control={<Checkbox defaultChecked />}
+          label="Select all"
+        />
         <Button
           variant="text"
           startIcon={<DeleteOutlinedIcon />}
           sx={{ color: "grey.700", textTransform: "none" }}
           onClick={() => console.log("clear chat clicked!")}
-        >Clear</Button>
-      </Stack>
-      <List sx={{height:"70vh", overflow:"auto"}}>
-        <ListItem
-        //   key={index.toString()}
         >
-          <ListItemText
-            primary={
-              <Typography variant="subtitle1" sx={{ color: "#9AA3AC" }}>
-                Today
-              </Typography>
-            }
-          />
-        </ListItem>
-        <DocumentRoomListItem />
-        <DocumentRoomListItem />
-        <DocumentRoomListItem />
-        <DocumentRoomListItem />
-        <DocumentRoomListItem />
-        <DocumentRoomListItem />
-        <DocumentRoomListItem />
-        <DocumentRoomListItem />
-        <DocumentRoomListItem />
-        <DocumentRoomListItem />
-        <DocumentRoomListItem />
-        <DocumentRoomListItem />
-        <DocumentRoomListItem />
-        <DocumentRoomListItem />
-        <DocumentRoomListItem />
-        <DocumentRoomListItem />
-        <DocumentRoomListItem />
-        <DocumentRoomListItem />
+          Clear
+        </Button>
+      </Stack>
+      <List
+        disablePadding
+        sx={{
+          height: "75vh",
+          overflow: "auto",
+        }}
+      >
+        {DUMMY_DATA_CHATROOMLIST.map((item, index) =>
+          item.text === undefined ? (
+            <Box key={index.toString()} component="li" sx={listItemStyle}>
+              <DayDividerText variant="subtitle1">{item.day}</DayDividerText>
+            </Box>
+          ) : (
+            <ChatRoomListItemButton
+              sx={listItemStyle}
+              key={index.toString()}
+              handleListItemButtonClick={handleListItemButtonClick}
+              index={index}
+              selectedIndex={selectedIndex}
+              item={item}
+            />
+          )
+        )}
       </List>
     </>
   );

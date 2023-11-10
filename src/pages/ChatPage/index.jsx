@@ -3,10 +3,18 @@ import { Box, styled } from "@mui/material";
 import ChatRoomList from "./ChatRoomList";
 import ChatRoom from "./ChatRoom";
 
-const SideBox = styled(Box)((theme) => ({
+const SideBox = styled(Box)(() => ({
   width: "320px",
   minWidth: "320px",
   height: "100%",
+}));
+
+const MainBox = styled(Box)(({ theme }) => ({
+  flexGrow: 1,
+  padding: theme.spacing(2),
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
 }));
 
 function ChatPage() {
@@ -15,13 +23,9 @@ function ChatPage() {
       <SideBox>
         <ChatRoomList sx={{ height: "100%" }} />
       </SideBox>
-      <Box
-        sx={{
-          flexGrow: 1,
-        }}
-      >
+      <MainBox>
         <ChatRoom />
-      </Box>
+      </MainBox>
     </Box>
   );
 }
