@@ -1,10 +1,11 @@
 import React from "react";
 import { Avatar, Typography, Box } from "@mui/material";
 import TextMessage from "./TextMessage";
+import TextMessageSkeleton from "./TextMessageSkeleton";
 
 const ChatMessage = ({
   isLocalParticipant,
-  isFirstMessageOfTheDay = false,
+  isFirstMessageOfTheDay,
   message,
   showTime,
   showAvatar,
@@ -35,11 +36,12 @@ const ChatMessage = ({
             <TextMessage isLocalParticipant={isLocalParticipant}>
               {message}
             </TextMessage>
+            <TextMessageSkeleton />
             {showTime && (
               <Typography
                 variant="body2"
                 color={"#A5B6BF"}
-                sx={{ paddingTop: .5 }}
+                sx={{ paddingTop: 0.5 }}
               >
                 {time}
               </Typography>

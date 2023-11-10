@@ -1,41 +1,32 @@
 import React from "react";
-import { Box, Paper, styled } from "@mui/material";
+import { Box, styled } from "@mui/material";
 import ChatRoomList from "./ChatRoomList";
 import ChatRoom from "./ChatRoom";
 
-const AppContainer = styled("main")({
-  background: "#E8EDF2",
-  height: "100vh",
-  display: "flex",
-});
+const SideBox = styled(Box)(() => ({
+  width: "320px",
+  minWidth: "320px",
+  height: "100%",
+}));
 
-const ChatRoomListContainer = styled(Paper)(() => ({
-  width: "275px",
+const MainBox = styled(Box)(({ theme }) => ({
+  display: "flex",
+  flexGrow: 1,
+  padding: theme.spacing(2),
+  justifyContent: "center",
+  alignItems: "center",
 }));
 
 function ChatPage() {
   return (
-    <AppContainer>
-      <ChatRoomListContainer>
-        <ChatRoomList />
-      </ChatRoomListContainer>
-
-      <Box
-        sx={{
-          flexGrow: 1,
-        }}
-      >
-        <Paper
-          sx={{
-            padding: 2,
-            borderRadius: "16px",
-            margin: 3,
-          }}
-        >
-          <ChatRoom />
-        </Paper>
-      </Box>
-    </AppContainer>
+    <Box sx={{ background: "#E8EDF2", height: "80vh", display: "flex" }}>
+      <SideBox>
+        <ChatRoomList sx={{ height: "100%" }} />
+      </SideBox>
+      <MainBox>
+        <ChatRoom sx={{ height: "90%" }} />
+      </MainBox>
+    </Box>
   );
 }
 

@@ -1,23 +1,40 @@
 import { Send } from "@mui/icons-material";
-import AttachFileIcon from "@mui/icons-material/AttachFile";
-import { Box, IconButton, Paper, TextField, styled } from "@mui/material";
+import {
+  Box,
+  IconButton,
+  TextField,
+  styled,
+  InputAdornment,
+} from "@mui/material";
 import React, { useState } from "react";
 
-const ChatRoomInputContainer = styled(Paper)({
+const InputContainer = styled(Box)(({ theme }) => ({
   display: "flex",
-  justifyContent: "center",
-  alignItems: "end",
+  flexDirection: "column-reverse",
+  alignItems: "center",
   position: "sticky",
   bottom: 0,
-  padding: "4px 4px",
   borderRadius: "10px",
-});
+  paddingRight: theme.spacing(2),
+}));
 
-const InputTextField = styled(TextField)(() => ({
+const InputTextField = styled(TextField)(({ theme }) => ({
+  zIndex: 2,
+  bottom: 0,
+  backgroundColor: "white",
+  borderRadius: "24px",
   "& >.MuiInputBase-root": {
     borderRadius: "24px",
+    paddingRight: theme.spacing(0.5),
   },
-  flex: 1,
+}));
+
+const SendIconButton = styled(IconButton)(({ theme }) => ({
+  backgroundColor: theme.palette.primary.main,
+  color: "white",
+  "&:hover": {
+    backgroundColor: theme.palette.primary.dark,
+  },
 }));
 
 const ChatRoomInput = () => {
@@ -44,28 +61,28 @@ const ChatRoomInput = () => {
   };
 
   return (
-    <ChatRoomInputContainer component="form" onSubmit={handleSubmit}>
-      <IconButton onClick={() => console.log("try to send a file")}>
-        <AttachFileIcon sx={{ transform: "rotate(45deg)" }} />
-      </IconButton>
+    <InputContainer component="form" onSubmit={handleSubmit}>
       <InputTextField
         placeholder="Write a message..."
         type="text"
-        inputProps={{ "aria-label": "send message" }}
         size="small"
         multiline
         onKeyDown={handleKeyDown}
         maxRows={4}
         value={message}
         onChange={handleChange}
+        fullWidth
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position="end">
+              <SendIconButton size="small" type="submit" aria-label="send">
+                <Send />
+              </SendIconButton>
+            </InputAdornment>
+          ),
+        }}
       />
-
-      <Box>
-        <IconButton type="submit" color="primary" aria-label="directions">
-          <Send />
-        </IconButton>
-      </Box>
-    </ChatRoomInputContainer>
+    </InputContainer>
   );
 };
 

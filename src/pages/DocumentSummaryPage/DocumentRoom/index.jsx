@@ -1,8 +1,8 @@
 import React from "react";
-import { Divider, Paper, styled } from "@mui/material";
-import ChatRoomHeader from "./ChatRoomHeader";
-import ChatRoomInput from "./ChatRoomInput";
-import ChatRoomMessages from "./ChatRoomMessages";
+import DocumentRoomHeader from "./DocumentRoomHeader";
+import DocumentRoomMessages from "./DocumentRoomMessages";
+import ChatRoomInput from "../../ChatPage/ChatRoom/ChatRoomInput";
+import { Paper, styled, Divider } from "@mui/material";
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
   display: "flex",
@@ -11,15 +11,14 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   paddingBottom: theme.spacing(2),
   paddingLeft: theme.spacing(2),
   borderRadius: "16px",
-  width: "100%",
 }));
 
 const ChatRoom = ({ ...paperProps }) => {
   return (
     <StyledPaper {...paperProps}>
-      <ChatRoomHeader />
+      <DocumentRoomHeader />
       <Divider />
-      <ChatRoomMessages />
+      <DocumentRoomMessages />
       <ChatRoomInput />
     </StyledPaper>
   );

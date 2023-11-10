@@ -1,18 +1,17 @@
 import React from "react";
 import ChatMessage from "./ChatMessage";
-import { Box } from "@mui/material";
+import { Box, styled } from "@mui/material";
 import { CHAT_MESSAGES_DUMMY_DATA } from "./DUMMY_DATA";
 
-const ChatRoomMessages = () => {
+const StyledBox = styled(Box)(({ theme }) => ({
+  overflow: "auto",
+  display: "flex",
+  flexDirection: "column-reverse",
+}));
+
+const ChatRoomMessages = ({ ...boxProps }) => {
   return (
-    <Box
-      sx={{
-        overflow: "auto",
-        height: "80vh",
-        display: "flex",
-        flexDirection: "column-reverse",
-      }}
-    >
+    <StyledBox {...boxProps}>
       {CHAT_MESSAGES_DUMMY_DATA.map((item, index) => (
         <ChatMessage
           key={index.toString()}
@@ -24,7 +23,7 @@ const ChatRoomMessages = () => {
           showTime={item.showTime}
         />
       ))}
-    </Box>
+    </StyledBox>
   );
 };
 

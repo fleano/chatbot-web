@@ -20,7 +20,6 @@ const TextMessage = ({ isLocalParticipant, children }) => {
       spacing={1}
       sx={{
         backgroundColor: isLocalParticipant ? "#eaeef1" : "#0b68f9",
-        minWidth: isLocalParticipant ? "initial" : "15%",
       }}
     >
       <Typography sx={{ color: isLocalParticipant ? "inherit" : "white" }}>
