@@ -32,7 +32,7 @@ const ChatRoomList = ({ ...paperProps }) => {
       <List
         disablePadding
         sx={{
-          height: "85vh",
+          height: "85%",
           overflow: "auto",
         }}
       >

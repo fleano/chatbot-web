@@ -19,7 +19,7 @@ const MainBox = styled(Box)(({ theme }) => ({
 
 function ChatPage() {
   return (
-    <Box sx={{ background: "#E8EDF2", height: "100vh", display: "flex" }}>
+    <Box sx={{ background: "#E8EDF2", height: "80vh", display: "flex" }}>
       <SideBox>
         <ChatRoomList sx={{ height: "100%" }} />
       </SideBox>

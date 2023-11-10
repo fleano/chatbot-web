@@ -1,42 +1,33 @@
 import React from "react";
-import { Box, Paper, styled } from "@mui/material";
+import { Box, styled } from "@mui/material";
 import DocumentRoomList from "./DocumentRoomList";
-import DocumentRoom from "./DocumentRoom";
+import ChatRoom from "../ChatPage/ChatRoom";
 
-const MainContainer = styled("main")({
-  background: "#E8EDF2",
-  height: "100vh",
-  display: "flex",
-});
-
-const DocumentRoomListContainer = styled(Paper)(() => ({
+const SideBox = styled(Box)(() => ({
   width: "320px",
+  minWidth: "320px",
+  height: "100%",
 }));
 
-const DocumentSummaryPage = () => {
-  return (
-    <MainContainer>
-      <DocumentRoomListContainer>
-        <DocumentRoomList />
-      </DocumentRoomListContainer>
+const MainBox = styled(Box)(({ theme }) => ({
+  display: "flex",
+  flexGrow: 1,
+  padding: theme.spacing(2),
+  justifyContent: "center",
+  alignItems: "center",
+}));
 
-      <Box
-        sx={{
-          flexGrow: 1,
-        }}
-      >
-        <Paper
-          sx={{
-            padding: 2,
-            borderRadius: "16px",
-            margin: 3,
-          }}
-        >
-          <DocumentRoom />
-        </Paper>
-      </Box>
-    </MainContainer>
+function DocumentSummaryPage() {
+  return (
+    <Box sx={{ background: "#E8EDF2", height: "80vh", display: "flex" }}>
+      <SideBox>
+        <DocumentRoomList sx={{ height: "100%" }} />
+      </SideBox>
+      <MainBox>
+        <ChatRoom sx={{ height: "90%" }} />
+      </MainBox>
+    </Box>
   );
-};
+}
 
 export default DocumentSummaryPage;

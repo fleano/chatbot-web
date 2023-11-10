@@ -10,7 +10,7 @@ import React, { useState } from "react";
 
 const InputContainer = styled(Box)(({ theme }) => ({
   display: "flex",
-  flexDirection: "column-reverse", // Grow upwards
+  flexDirection: "column-reverse",
   alignItems: "center",
   position: "sticky",
   bottom: 0,
@@ -18,9 +18,7 @@ const InputContainer = styled(Box)(({ theme }) => ({
   paddingRight: theme.spacing(2),
 }));
 
-
 const InputTextField = styled(TextField)(({ theme }) => ({
-  // position: "absolute",
   zIndex: 2,
   bottom: 0,
   backgroundColor: "white",
@@ -64,28 +62,26 @@ const ChatRoomInput = () => {
 
   return (
     <InputContainer component="form" onSubmit={handleSubmit}>
-      {/* <Box sx={{ flex: 1, position: "relative", bottom: 0 }}> */}
-        <InputTextField
-          placeholder="Write a message..."
-          type="text"
-          size="small"
-          multiline
-          onKeyDown={handleKeyDown}
-          maxRows={4}
-          value={message}
-          onChange={handleChange}
-          fullWidth
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="end">
-                <SendIconButton size="small" type="submit" aria-label="send">
-                  <Send />
-                </SendIconButton>
-              </InputAdornment>
-            ),
-          }}
-        />
-      {/* </Box> */}
+      <InputTextField
+        placeholder="Write a message..."
+        type="text"
+        size="small"
+        multiline
+        onKeyDown={handleKeyDown}
+        maxRows={4}
+        value={message}
+        onChange={handleChange}
+        fullWidth
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position="end">
+              <SendIconButton size="small" type="submit" aria-label="send">
+                <Send />
+              </SendIconButton>
+            </InputAdornment>
+          ),
+        }}
+      />
     </InputContainer>
   );
 };
