@@ -31,6 +31,7 @@ function ChatRoomHeader() {
         justifyContent: "space-between",
         alignItems: "center",
         paddingBottom: 1,
+        paddingRight: 2,
       }}
     >
       <Typography

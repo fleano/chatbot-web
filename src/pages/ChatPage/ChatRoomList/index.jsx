@@ -61,6 +61,7 @@ const ChatRoomList = ({ ...paperProps }) => {
           alignItems: "center",
           position: "sticky",
           bottom: 0,
+          backgroundColor: "white",
         }}
         spacing={1}
       >

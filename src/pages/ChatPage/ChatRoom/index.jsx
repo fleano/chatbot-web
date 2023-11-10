@@ -8,7 +8,8 @@ const ChatRoom = ({ ...paperProps }) => {
   return (
     <Paper
       sx={{
-        padding: 2,
+        paddingY: 2,
+        paddingLeft: 2,
         borderRadius: "16px",
       }}
     >

@@ -25,14 +25,14 @@ export const CHAT_MESSAGES_DUMMY_DATA = [
   },
   {
     isLocalParticiapnt: false,
-    message: "helloooooo",
+    message: "h",
     time: "4.30pm",
     showTime: true,
     showAvatar: true,
   },
   {
     isLocalParticiapnt: true,
-    message: "helloooooo helloooooo helloooooo helloooooo",
+    message: "a",
     time: "3.30pm",
     showTime: true,
     showAvatar: false,
@@ -46,7 +46,7 @@ export const CHAT_MESSAGES_DUMMY_DATA = [
   },
   {
     isLocalParticiapnt: false,
-    message: "helloooooo",
+    message: "hh",
     time: "2.30pm",
     showTime: true,
     showAvatar: true,
