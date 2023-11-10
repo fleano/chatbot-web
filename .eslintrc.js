@@ -17,11 +17,17 @@ module.exports = {
     sourceType: "module",
   },
   plugins: ["react"],
+  settings: {
+    react: {
+      version: "detect",
+    },
+  },
+
   rules: {
     "no-restricted-globals": ["error"].concat(
       require("confusing-browser-globals")
     ),
-    "no-unused-vars": "warn", 
+    "no-unused-vars": "warn",
     eqeqeq: "error",
     "no-restricted-syntax": [
       "error",
