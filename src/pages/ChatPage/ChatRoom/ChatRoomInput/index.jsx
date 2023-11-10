@@ -63,8 +63,7 @@ const ChatRoomInput = () => {
 
   return (
     <InputContainer component="form" onSubmit={handleSubmit}>
-      <h1>hii</h1>
-      <Box sx={{ flex: 1, position: "relative" }}>
+      <Box sx={{ flex: 1, position: "relative", bottom: 0 }}>
         <InputTextField
           placeholder="Write a message..."
           type="text"

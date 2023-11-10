@@ -1,23 +1,24 @@
 import React from "react";
-import { Box, Divider, Paper } from "@mui/material";
+import { Box, Divider, Paper, styled } from "@mui/material";
 import ChatRoomHeader from "./ChatRoomHeader";
 import ChatRoomInput from "./ChatRoomInput";
 import ChatRoomMessages from "./ChatRoomMessages";
 
+const StyledPaper = styled(Paper)(({ theme }) => ({
+  paddingTop: theme.spacing(2),
+  paddingBottom: theme.spacing(2),
+  paddingLeft: theme.spacing(2),
+  borderRadius: "16px",
+}));
+
 const ChatRoom = ({ ...paperProps }) => {
   return (
-    <Paper
-      sx={{
-        paddingY: 2,
-        paddingLeft: 2,
-        borderRadius: "16px",
-      }}
-    >
+    <StyledPaper {...paperProps}>
       <ChatRoomHeader />
       <Divider />
       <ChatRoomMessages sx={{ height: "70vh" }} />
       <ChatRoomInput />
-    </Paper>
+    </StyledPaper>
   );
 };
 
