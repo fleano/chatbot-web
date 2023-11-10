@@ -6,6 +6,7 @@ import {
   Typography,
   List,
   Box,
+  Paper,
   FormControlLabel,
   styled,
 } from "@mui/material";
@@ -15,7 +16,7 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import Checkbox from "@mui/material/Checkbox";
 import { DUMMY_DATA_CHATROOMLIST } from "../../ChatPage/ChatRoomList/DUMMY_DATA";
-import ChatRoomListItemButton from "../../ChatPage/ChatRoomList/ChatRoomListItemButton";
+import DocumentRoomListItemButton from "./DocumentRoomListItemButton";
 
 const DayDividerText = styled(Typography)(({ theme }) => ({
   color: "#9AA3AC",
@@ -24,14 +25,31 @@ const DayDividerText = styled(Typography)(({ theme }) => ({
 
 const listItemStyle = { marginX: 1, padding: 0 };
 
-const DocumentRoomList = () => {
-  const [selectedIndex, setSelectedIndex] = useState(null);
+const DocumentRoomList = ({ ...paperProps }) => {
+  const [selectedItems, setSelectedItems] = useState(new Set());
+  const isAllSelected = selectedItems.size === DUMMY_DATA_CHATROOMLIST.length;
+
+  const handleSelectAllChange = () => {
+    if (isAllSelected) {
+      setSelectedItems(new Set());
+    } else {
+      setSelectedItems(
+        new Set(DUMMY_DATA_CHATROOMLIST.map((_, index) => index))
+      );
+    }
+  };
+
   const handleListItemButtonClick = (index) => {
-    setSelectedIndex(index);
-    console.log("listItem is clicked!");
+    const newSelectedItems = new Set(selectedItems);
+    if (newSelectedItems.has(index)) {
+      newSelectedItems.delete(index);
+    } else {
+      newSelectedItems.add(index);
+    }
+    setSelectedItems(newSelectedItems);
   };
   return (
-    <>
+    <Paper {...paperProps}>
       <Stack
         sx={{
           display: "flex",
@@ -49,8 +67,9 @@ const DocumentRoomList = () => {
           onClick={() => console.log("upload file clicked!")}
         >
           Upload file
-        </Button>{" "}
+        </Button>
         <IconButton
+          aria-label="search"
           onClick={() => console.log("searching chat clicked!")}
           sx={{
             border: "1px solid", // Add a border
@@ -75,7 +94,12 @@ const DocumentRoomList = () => {
         padding={2}
       >
         <FormControlLabel
-          control={<Checkbox defaultChecked />}
+          control={
+            <Checkbox
+              checked={isAllSelected}
+              onChange={handleSelectAllChange}
+            />
+          }
           label="Select all"
         />
         <Button
@@ -90,7 +114,7 @@ const DocumentRoomList = () => {
       <List
         disablePadding
         sx={{
-          height: "75vh",
+          maxHeight: "75%",
           overflow: "auto",
         }}
       >
@@ -100,18 +124,18 @@ const DocumentRoomList = () => {
               <DayDividerText variant="subtitle1">{item.day}</DayDividerText>
             </Box>
           ) : (
-            <ChatRoomListItemButton
+            <DocumentRoomListItemButton
               sx={listItemStyle}
               key={index.toString()}
-              handleListItemButtonClick={handleListItemButtonClick}
-              index={index}
-              selectedIndex={selectedIndex}
+              handleListItemButtonClick={() => handleListItemButtonClick(index)}
               item={item}
+              index={index}
+              selected={selectedItems.has(index)}
             />
           )
         )}
       </List>
-    </>
+    </Paper>
   );
 };
 

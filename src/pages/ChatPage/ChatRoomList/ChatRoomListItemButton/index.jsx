@@ -29,7 +29,7 @@ const StyledListItemButton = styled(ListItemButton)(({ theme }) => ({
 function ChatRoomListItemButton({
   handleListItemButtonClick,
   index,
-  selectedIndex,
+  selected,
   item,
   ...listItemButtonProps
 }) {
@@ -47,7 +47,7 @@ function ChatRoomListItemButton({
       component="li"
       disableRipple
       onClick={() => handleListItemButtonClick(index)}
-      selected={selectedIndex === index}
+      selected={selected}
       {...listItemButtonProps}
     >
       <ListItemAvatar sx={{ minWidth: "20px" }}>
@@ -62,14 +62,14 @@ function ChatRoomListItemButton({
               textOverflow: "ellipsis",
               overflow: "hidden",
               whiteSpace: "nowrap",
-              color: selectedIndex === index ? "primary.main" : "inherit",
+              color: selected ? "primary.main" : "inherit",
             }}
           >
             {item.text}
           </Typography>
         }
       />
-      {selectedIndex === index && (
+      {selected && (
         <Stack direction="row">
           <IconButton
             edge="end"

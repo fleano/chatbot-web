@@ -11,6 +11,7 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   paddingBottom: theme.spacing(2),
   paddingLeft: theme.spacing(2),
   borderRadius: "16px",
+  width: "100%",
 }));
 
 const ChatRoom = ({ ...paperProps }) => {

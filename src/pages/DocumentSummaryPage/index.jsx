@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, styled } from "@mui/material";
 import DocumentRoomList from "./DocumentRoomList";
-import ChatRoom from "../ChatPage/ChatRoom";
+import DocumentRoom from "./DocumentRoom";
 
 const SideBox = styled(Box)(() => ({
   width: "320px",
@@ -19,12 +19,12 @@ const MainBox = styled(Box)(({ theme }) => ({
 
 function DocumentSummaryPage() {
   return (
-    <Box sx={{ background: "#E8EDF2", height: "80vh", display: "flex" }}>
+    <Box sx={{ background: "#E8EDF2", height: "100vh", display: "flex" }}>
       <SideBox>
         <DocumentRoomList sx={{ height: "100%" }} />
       </SideBox>
       <MainBox>
-        <ChatRoom sx={{ height: "90%" }} />
+        <DocumentRoom sx={{ height: "90%" }} />
       </MainBox>
     </Box>
   );

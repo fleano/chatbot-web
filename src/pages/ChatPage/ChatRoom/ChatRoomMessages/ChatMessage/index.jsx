@@ -1,6 +1,7 @@
 import React from "react";
 import { Avatar, Typography, Box } from "@mui/material";
 import TextMessage from "./TextMessage";
+import TextMessageSkeleton from "./TextMessageSkeleton";
 
 const ChatMessage = ({
   isLocalParticipant,
@@ -35,6 +36,7 @@ const ChatMessage = ({
             <TextMessage isLocalParticipant={isLocalParticipant}>
               {message}
             </TextMessage>
+            <TextMessageSkeleton />
             {showTime && (
               <Typography
                 variant="body2"

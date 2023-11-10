@@ -51,16 +51,16 @@ function ChatRoomHeader() {
         spacing={1}
         divider={<Divider orientation="vertical" variant="middle" flexItem />}
       >
-        <IconButton onClick={handleIconClick1}>
+        <IconButton aria-label="star" onClick={handleIconClick1}>
           <StarIcon sx={{ color: isStarred ? "#E8C356" : "default" }} />
         </IconButton>
-        <IconButton onClick={handleIconClick2}>
+        <IconButton aria-label="options" onClick={handleIconClick2}>
           <MoreVertOutlinedIcon />
         </IconButton>
-        <IconButton onClick={handleIconClick3}>
+        <IconButton aria-label="edit" onClick={handleIconClick3}>
           <BorderColorOutlinedIcon />
         </IconButton>
-        <IconButton onClick={handleIconClick4}>
+        <IconButton aria-label="delete" onClick={handleIconClick4}>
           <DeleteOutlinedIcon />
         </IconButton>
         <Typography>10:01 PM, 10/05/2023</Typography>

@@ -1,9 +1,17 @@
 import React, { useState } from "react";
-import { Box, Typography, IconButton, Stack, Divider } from "@mui/material";
+import {
+  Box,
+  Typography,
+  IconButton,
+  Stack,
+  Divider,
+  Chip,
+} from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import MoreVertOutlinedIcon from "@mui/icons-material/MoreVertOutlined";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import BorderColorOutlinedIcon from "@mui/icons-material/BorderColorOutlined";
+import InsertDriveFileIcon from "@mui/icons-material/InsertDriveFile";
 
 function DocumentRoomHeader() {
   const [isStarred, setIsStarred] = useState(false);
@@ -24,6 +32,10 @@ function DocumentRoomHeader() {
     console.log("icon 4 clicked");
   };
 
+  const handleDelete = () => {
+    console.info("You clicked the delete icon.");
+  };
+
   return (
     <Box
       sx={{
@@ -31,35 +43,34 @@ function DocumentRoomHeader() {
         justifyContent: "space-between",
         alignItems: "center",
         paddingBottom: 1,
+        paddingRight: 2,
       }}
     >
-      <Typography
-        variant="h5"
-        fontWeight={700}
-        sx={{
-          textOverflow: "ellipsis",
-          overflow: "hidden",
-          whiteSpace: "nowrap",
-        }}
-      >
-        Heyow!
-      </Typography>
+      <Chip
+        icon={<InsertDriveFileIcon />}
+        label={
+          <>
+            <Typography>Pride and prejucdie.pdf</Typography>
+          </>
+        }
+        onDelete={handleDelete}
+      />
       <Stack
         direction="row"
         alignItems={"center"}
         spacing={1}
         divider={<Divider orientation="vertical" variant="middle" flexItem />}
       >
-        <IconButton onClick={handleIconClick1}>
+        <IconButton aria-label="star" onClick={handleIconClick1}>
           <StarIcon sx={{ color: isStarred ? "#E8C356" : "default" }} />
         </IconButton>
-        <IconButton onClick={handleIconClick2}>
+        <IconButton aria-label="options" onClick={handleIconClick2}>
           <MoreVertOutlinedIcon />
         </IconButton>
-        <IconButton onClick={handleIconClick3}>
+        <IconButton aria-label="edit" onClick={handleIconClick3}>
           <BorderColorOutlinedIcon />
         </IconButton>
-        <IconButton onClick={handleIconClick4}>
+        <IconButton aria-label="delete" onClick={handleIconClick4}>
           <DeleteOutlinedIcon />
         </IconButton>
         <Typography>10:01 PM, 10/05/2023</Typography>

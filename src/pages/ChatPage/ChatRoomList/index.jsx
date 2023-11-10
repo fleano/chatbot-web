@@ -46,9 +46,9 @@ const ChatRoomList = ({ ...paperProps }) => {
               sx={listItemStyle}
               key={index.toString()}
               handleListItemButtonClick={handleListItemButtonClick}
-              index={index}
-              selectedIndex={selectedIndex}
               item={item}
+              index={index}
+              selected={selectedIndex === index}
             />
           )
         )}
