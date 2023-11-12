@@ -19,12 +19,10 @@ const InputContainer = styled(Box)(({ theme }) => ({
 }));
 
 const InputTextField = styled(TextField)(({ theme }) => ({
-  zIndex: 2,
-  bottom: 0,
   backgroundColor: "white",
-  borderRadius: "24px",
+  borderRadius: theme.spacing(2),
   "& >.MuiInputBase-root": {
-    borderRadius: "24px",
+    borderRadius: theme.spacing(3),
     paddingRight: theme.spacing(0.5),
   },
 }));

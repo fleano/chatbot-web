@@ -34,15 +34,7 @@ function ChatRoomHeader() {
         paddingRight: 2,
       }}
     >
-      <Typography
-        variant="h5"
-        fontWeight={700}
-        sx={{
-          textOverflow: "ellipsis",
-          overflow: "hidden",
-          whiteSpace: "nowrap",
-        }}
-      >
+      <Typography variant="h5" fontWeight={700} noWrap>
         Heyow!
       </Typography>
       <Stack

@@ -18,6 +18,9 @@ const StyledListItemButton = styled(ListItemButton)(({ theme }) => ({
   alignItems: "center",
   justifyContent: "space-between",
   borderRadius: "6px",
+  marginLeft: theme.spacing(1),
+  marginRight: theme.spacing(1),
+  padding: 0,
   "&.Mui-selected, &.Mui-selected:hover": {
     bgcolor: "#f4f8ff",
     "& .MuiAvatar-root": {
@@ -59,11 +62,9 @@ function ChatRoomListItemButton({
         primary={
           <Typography
             sx={{
-              textOverflow: "ellipsis",
-              overflow: "hidden",
-              whiteSpace: "nowrap",
               color: selected ? "primary.main" : "inherit",
             }}
+            noWrap
           >
             {item.text}
           </Typography>

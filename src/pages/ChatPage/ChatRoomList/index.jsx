@@ -4,22 +4,22 @@ import {
   Divider,
   Stack,
   Button,
-  Typography,
   Paper,
   styled,
-  Box,
+  ListSubheader,
 } from "@mui/material";
 import { DUMMY_DATA_CHATROOMLIST } from "./DUMMY_DATA";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import AddIcon from "@mui/icons-material/Add";
 import ChatRoomListItemButton from "./ChatRoomListItemButton";
 
-const DayDividerText = styled(Typography)(({ theme }) => ({
-  color: "#9AA3AC",
-  paddingTop: theme.spacing(2),
+const StyledListSubheader = styled(ListSubheader)(({ theme }) => ({
+  lineHeight: theme.spacing(4),
+  position: "static",
+  textOverflow: "ellipsis",
+  overflow: "hidden",
+  whiteSpace: "nowrap",
 }));
-
-const listItemStyle = { marginX: 1, padding: 0 };
 
 const ChatRoomList = ({ ...paperProps }) => {
   const [selectedIndex, setSelectedIndex] = useState(null);
@@ -30,20 +30,18 @@ const ChatRoomList = ({ ...paperProps }) => {
   return (
     <Paper {...paperProps}>
       <List
-        disablePadding
         sx={{
-          height: "85%",
+          height: "80%",
           overflow: "auto",
         }}
       >
         {DUMMY_DATA_CHATROOMLIST.map((item, index) =>
           item.text === undefined ? (
-            <Box key={index.toString()} component="li" sx={listItemStyle}>
-              <DayDividerText variant="subtitle1">{item.day}</DayDividerText>
-            </Box>
+            <StyledListSubheader key={index.toString()}>
+              {item.day}
+            </StyledListSubheader>
           ) : (
             <ChatRoomListItemButton
-              sx={listItemStyle}
               key={index.toString()}
               handleListItemButtonClick={handleListItemButtonClick}
               item={item}
@@ -57,16 +55,17 @@ const ChatRoomList = ({ ...paperProps }) => {
       <Stack
         sx={{
           display: "flex",
+          flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
           position: "sticky",
           bottom: 0,
           backgroundColor: "white",
+          flexGrow: 1,
         }}
         spacing={1}
       >
         <Button
-          variant="text"
           startIcon={<DeleteOutlinedIcon />}
           sx={{ color: "grey.700", textTransform: "none" }}
           onClick={() => console.log("clear chat clicked!")}
@@ -83,6 +82,7 @@ const ChatRoomList = ({ ...paperProps }) => {
         </Button>
       </Stack>
     </Paper>
+    // </Box>
   );
 };
 
